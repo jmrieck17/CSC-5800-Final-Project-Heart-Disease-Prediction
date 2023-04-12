@@ -548,6 +548,8 @@ Here is a diagram of our decision tree:
 
 When looking at models performance on the original data and the feature reduced data, the K-nearest neighbors method was the best model for predicting whether or not an individual had heart disease. Another observation is that the feature reduced data did not necessarily produce better results. This could be due to the dataset already having a lower dimensionality. Also, there could be a better n_components amount that we could have selected between 2 and 13 that may have given us a better result, but we decided, for the sake of time, to not test those values out during our PCA reduction analysis.
 
+![image](https://user-images.githubusercontent.com/75294739/231364743-06adcdb2-0fa8-4a6d-99c8-365c201490cd.png)
+
 Regarding the decision trees that we used in our analysis, we initially did not put a threshold on the maximum number of leaf nodes we wanted in our model. This ended up giving us a massive tree that did produce 100% accuracy on both the original data and the feature reduced data as well as 100% ROC score. We decided to implement a maximum 20 leaf nodes on our decision tree just for aesthetic purposes so we could add the diagram to our results section.
  
 # Contributions
