@@ -323,183 +323,227 @@ The hyper-parameter combination that returned the highest accuracy:
 ### Original Data
 When we plugged in our best hyper-parameters into the Logistic Regression model, trained the model on our training data, and tested the accuracy on our test data, we received the following results:
 
-Accuracy: 0.8536585365853658
-Confusion Matrix:
-[[79 22]
- [ 8 96]]
-Classification Report Table:
-              precision    recall  f1-score   support
+**Accuracy:** 85.37%
 
-           0       0.91      0.78      0.84       101
-           1       0.81      0.92      0.86       104
+**Confusion Matrix:**
+|           | **Actual Positive** | **Actual Negative** |
+| --------- | -------------- | -------------- |
+| **Predicted Positive** | 79             | 22             |
+| **Predicted Negative** | 8              | 96             |
 
-    accuracy                           0.85       205
-   macro avg       0.86      0.85      0.85       205
-weighted avg       0.86      0.85      0.85       205
+**Classification Report Table:**
+
+|              | **precision** | **recall** | **f1-score** | **support |
+| ------------ | --------- | ------ | -------- | ------- |
+| **0**            | 0.91      | 0.78   | 0.84     | 101     |
+| **1**            | 0.81      | 0.92   | 0.86     | 104     |
+|              |           |        |          |         |
+| **accuracy**     |           |        | 0.85     | 205     |
+| **macro avg**    | 0.86      | 0.85   | 0.85     | 205     |
+| **weighted avg** | 0.86      | 0.85   | 0.85     | 205     |
 
 [Parallel(n_jobs=-1)]: Done   1 out of   1 | elapsed:    1.0s finished
 
 Here is a diagram of the ROC curve for Logistic Regression:
 
+![image](https://user-images.githubusercontent.com/75294739/231359682-7d717bed-fffb-4d40-832e-2e870675823c.png)
 
 ### PCA Data
 When we plugged in our best hyper-parameters into the Logistic Regression model, trained the model on our training data, and tested the accuracy on our test data, we received the following results:
 
-Accuracy: 0.8536585365853658
-Confusion Matrix:
-[[78 23]
- [ 7 97]]
-Classification Report Table:
-              precision    recall  f1-score   support
+**Accuracy:** 85.37%
 
-           0       0.92      0.77      0.84       101
-           1       0.81      0.93      0.87       104
+**Confusion Matrix:**
+|           | **Actual Positive** | **Actual Negative** |
+| --------- | -------------- | -------------- |
+| **Predicted Positive** | 78             | 23             |
+| **Predicted Negative** | 7              | 97             |
 
-    accuracy                           0.85       205
-   macro avg       0.86      0.85      0.85       205
-weighted avg       0.86      0.85      0.85       205
+**Classification Report Table:**
+
+|              | **precision** | **recall** | **f1-score** | **support |
+| ------------ | --------- | ------ | -------- | ------- |
+| **0**            | 0.92      | 0.77   | 0.84     | 101     |
+| **1**            | 0.81      | 0.93   | 0.87     | 104     |
+|              |           |        |          |         |
+| **accuracy**     |           |        | 0.85     | 205     |
+| **macro avg**    | 0.86      | 0.85   | 0.85     | 205     |
+| **weighted avg** | 0.86      | 0.85   | 0.85     | 205     |
 
 [Parallel(n_jobs=-1)]: Done   1 out of   1 | elapsed:    0.4s finished
 
 Here is a diagram of the ROC curve for Logistic Regression:
 
+![image](https://user-images.githubusercontent.com/75294739/231359718-5f081412-b4a2-4790-ad75-dc38e465269f.png)
  
 ## Naive Bayes
 ### Original Data
 When we trained our data on the Naive Bayes model and tested the accuracy of our test data, we received the following results:
 
-Accuracy: 0.8390243902439024
-Confusion Matrix:
-[[79 22]
- [11 93]]
-Classification Report Table:
-              precision    recall  f1-score   support
+**Accuracy:** 83.90%
 
-           0       0.88      0.78      0.83       101
-           1       0.81      0.89      0.85       104
+**Confusion Matrix:**
+|           | **Actual Positive** | **Actual Negative** |
+| --------- | -------------- | -------------- |
+| **Predicted Positive** | 79             | 22             |
+| **Predicted Negative** | 11              | 93             |
 
-    accuracy                           0.84       205
-   macro avg       0.84      0.84      0.84       205
-weighted avg       0.84      0.84      0.84       205
+**Classification Report Table:**
+
+|              | **precision** | **recall** | **f1-score** | **support |
+| ------------ | --------- | ------ | -------- | ------- |
+| **0**            | 0.88      | 0.78   | 0.83     | 101     |
+| **1**            | 0.81      | 0.89   | 0.85     | 104     |
+|              |           |        |          |         |
+| **accuracy**     |           |        | 0.84     | 205     |
+| **macro avg**    | 0.84      | 0.84   | 0.84     | 205     |
+| **weighted avg** | 0.84      | 0.84   | 0.84     | 205     |
 
 Here is a diagram of the ROC curve for Naive Bayes:
 
+![image](https://user-images.githubusercontent.com/75294739/231359754-266c9e13-8dc5-422d-b667-8c1aa8278395.png)
  
 ### PCA Data
 When we trained our data on the Naive Bayes model and tested the accuracy of our test data, we received the following results:
+**Accuracy:** 85.86%
 
-Accuracy: 0.8585365853658536
-Confusion Matrix:
-[[78 23]
- [ 6 98]]
-Classification Report Table:
-              precision    recall  f1-score   support
+**Confusion Matrix:**
+|           | **Actual Positive** | **Actual Negative** |
+| --------- | -------------- | -------------- |
+| **Predicted Positive** | 78             | 23             |
+| **Predicted Negative** | 6              | 98             |
 
-           0       0.93      0.77      0.84       101
-           1       0.81      0.94      0.87       104
+**Classification Report Table:**
 
-    accuracy                           0.86       205
-   macro avg       0.87      0.86      0.86       205
-weighted avg       0.87      0.86      0.86       205
+|              | **precision** | **recall** | **f1-score** | **support |
+| ------------ | --------- | ------ | -------- | ------- |
+| **0**            | 0.93      | 0.77   | 0.84     | 101     |
+| **1**            | 0.81      | 0.94   | 0.87     | 104     |
+|              |           |        |          |         |
+| **accuracy**     |           |        | 0.86     | 205     |
+| **macro avg**    | 0.87      | 0.86   | 0.86     | 205     |
+| **weighted avg** | 0.87      | 0.86   | 0.86     | 205     |
 
 Here is a diagram of the ROC curve for Naive Bayes:
 
- 
+![image](https://user-images.githubusercontent.com/75294739/231359798-7475fb64-2afa-40b5-ad36-e0ec92abbb64.png)
+
 ## K-Nearest Neighbor
 ### Original Data
 When we plugged in our best hyper-parameters into the K-Nearest Neighbor model, trained the model on our training data, and tested the accuracy on our test data, we received the following results:
 
-Accuracy: 1.0
-Confusion Matrix:
-[[101   0]
- [  0 104]]
-Classification Report Table:
-              precision    recall  f1-score   support
+**Accuracy:** 100.00%
 
-           0       1.00      1.00      1.00       101
-           1       1.00      1.00      1.00       104
+**Confusion Matrix:**
+|           | **Actual Positive** | **Actual Negative** |
+| --------- | -------------- | -------------- |
+| **Predicted Positive** | 101             | 0             |
+| **Predicted Negative** | 0              | 104             |
 
-    accuracy                           1.00       205
-   macro avg       1.00      1.00      1.00       205
-weighted avg       1.00      1.00      1.00       205
+**Classification Report Table:**
+
+|              | **precision** | **recall** | **f1-score** | **support |
+| ------------ | --------- | ------ | -------- | ------- |
+| **0**            | 1.00      | 1.00   | 1.00     | 101     |
+| **1**            | 1.00      | 1.00   | 1.00     | 104     |
+|              |           |        |          |         |
+| **accuracy**     |           |        | 1.00     | 205     |
+| **macro avg**    | 1.00      | 1.00   | 1.00     | 205     |
+| **weighted avg** | 1.00      | 1.00   | 1.00     | 205     |
 
 Here is a diagram of the ROC curve for K-Nearest Neighbor:
 
- 
+![image](https://user-images.githubusercontent.com/75294739/231359839-fddbf8ea-2461-4b5a-b915-e3a5d8e5e6b5.png)
+
 ### PCA Data
 When we plugged in our best hyper-parameters into the K-Nearest Neighbor model, trained the model on our training data, and tested the accuracy on our test data, we received the following results:
 
-Accuracy: 1.0
-Confusion Matrix:
-[[101   0]
- [  0 104]]
-Classification Report Table:
-              precision    recall  f1-score   support
+**Accuracy:** 100.00%
 
-           0       1.00      1.00      1.00       101
-           1       1.00      1.00      1.00       104
+**Confusion Matrix:**
+|           | **Actual Positive** | **Actual Negative** |
+| --------- | -------------- | -------------- |
+| **Predicted Positive** | 101             | 0             |
+| **Predicted Negative** | 0              | 104             |
 
-    accuracy                           1.00       205
-   macro avg       1.00      1.00      1.00       205
-weighted avg       1.00      1.00      1.00       205
+**Classification Report Table:**
+
+|              | **precision** | **recall** | **f1-score** | **support |
+| ------------ | --------- | ------ | -------- | ------- |
+| **0**            | 1.00      | 1.00   | 1.00     | 101     |
+| **1**            | 1.00      | 1.00   | 1.00     | 104     |
+|              |           |        |          |         |
+| **accuracy**     |           |        | 1.00     | 205     |
+| **macro avg**    | 1.00      | 1.00   | 1.00     | 205     |
+| **weighted avg** | 1.00      | 1.00   | 1.00     | 205     |
 
 Here is a diagram of the ROC curve for K-Nearest Neighbor:
 
+![image](https://user-images.githubusercontent.com/75294739/231359888-37197266-458d-4a20-a161-891dbcb642ba.png)
  
 ## Decision Tree
 ### Original Data
 When we plugged in our best hyper-parameters into the Decision Tree model, trained the model on our training data, and tested the accuracy on our test data, we received the following results:
 
-Accuracy: 0.926829268292683
-Confusion Matrix:
-[[92  9]
- [ 6 98]]
-Classification Report Table:
-              precision    recall  f1-score   support
+**Accuracy:** 92.68%
 
-           0       0.94      0.91      0.92       101
-           1       0.92      0.94      0.93       104
+**Confusion Matrix:**
+|           | **Actual Positive** | **Actual Negative** |
+| --------- | -------------- | -------------- |
+| **Predicted Positive** | 92             | 9             |
+| **Predicted Negative** | 6              | 98             |
 
-    accuracy                           0.93       205
-   macro avg       0.93      0.93      0.93       205
-weighted avg       0.93      0.93      0.93       205
+**Classification Report Table:**
+
+|              | **precision** | **recall** | **f1-score** | **support |
+| ------------ | --------- | ------ | -------- | ------- |
+| **0**            | 0.94      | 0.91   | 0.92     | 101     |
+| **1**            | 0.92      | 0.94   | 0.93     | 104     |
+|              |           |        |          |         |
+| **accuracy**     |           |        | 0.93     | 205     |
+| **macro avg**    | 0.93      | 0.93   | 0.93     | 205     |
+| **weighted avg** | 0.93      | 0.93   | 0.93     | 205     |
+
 
 Here is a diagram of the ROC curve for Decision Tree:
 
+![image](https://user-images.githubusercontent.com/75294739/231359929-b64b4b6c-f923-4a62-877c-e5fda4b54b6c.png)
  
 Here is a diagram of our decision tree:
 
+![image](https://user-images.githubusercontent.com/75294739/231359947-68a15c00-c3cd-42cd-bb99-10e65b264d74.png)
  
 ### PCA Data
 When we plugged in our best hyper-parameters into the Decision Tree model, trained the model on our training data, and tested the accuracy on our test data, we received the following results:
 
-Accuracy: 0.8634146341463415
-Confusion Matrix:
-[[78 23]
- [ 5 99]]
-Classification Report Table:
-              precision    recall  f1-score   support
+**Accuracy:** 86.34%
 
-           0       0.94      0.77      0.85       101
-           1       0.81      0.95      0.88       104
+**Confusion Matrix:**
+|           | **Actual Positive** | **Actual Negative** |
+| --------- | -------------- | -------------- |
+| **Predicted Positive** | 78             | 23             |
+| **Predicted Negative** | 5              | 99             |
 
-    accuracy                           0.86       205
-   macro avg       0.88      0.86      0.86       205
-weighted avg       0.87      0.86      0.86       205
+**Classification Report Table:**
+
+|              | **precision** | **recall** | **f1-score** | **support |
+| ------------ | --------- | ------ | -------- | ------- |
+| **0**            | 0.94      | 0.77   | 0.85     | 101     |
+| **1**            | 0.81      | 0.95   | 0.88     | 104     |
+|              |           |        |          |         |
+| **accuracy**     |           |        | 0.86     | 205     |
+| **macro avg**    | 0.88      | 0.86   | 0.86     | 205     |
+| **weighted avg** | 0.87      | 0.86   | 0.86     | 205     |
+
 
 Here is a diagram of the ROC curve for Decision Tree:
 
+![image](https://user-images.githubusercontent.com/75294739/231359977-5f8ddf72-272b-4bed-9277-f6e10973acb0.png)
  
-
 Here is a diagram of our decision tree:
 
- 
-
-
-
-
-
- 
+![image](https://user-images.githubusercontent.com/75294739/231360011-6c47b75d-891e-4b03-b67d-4225b739903c.png)
+  
 # Conclusion
 
 When looking at models performance on the original data and the feature reduced data, the K-nearest neighbors method was the best model for predicting whether or not an individual had heart disease. Another observation is that the feature reduced data did not necessarily produce better results. This could be due to the dataset already having a lower dimensionality. Also, there could be a better n_components amount that we could have selected between 2 and 13 that may have given us a better result, but we decided, for the sake of time, to not test those values out during our PCA reduction analysis.
@@ -508,9 +552,9 @@ Regarding the decision trees that we used in our analysis, we initially did not 
  
 # Contributions
 
-Literature Review: Rekha
-Data Visualization: Rekha
-Data Pre-Processing: Josh
-Data Mining Algorithms: Josh
-Results: Both
-Conclusion: Both
+- Literature Review: Rekha
+- Data Visualization: Rekha
+- Data Pre-Processing: Josh
+- Data Mining Algorithms: Josh
+- Results: Both
+- Conclusion: Both
