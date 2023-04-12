@@ -118,47 +118,52 @@ X_scaled = scaler.fit_transform(X)
 
 And last, in order to train our models and test their accuracies, we implemented the train_test_split library to split our two dataframes into a training set and a test set. We decided to put 80% of our data into our training set, the the remaining 20% into our test set.
 
+``` python
 X_train,X_test,y_train,y_test = train_test_split(X_scaled,y,test_size=0.2 , 
                                                  random_state = 1234) 
 # splitting the dataset into 80% validation and 20% test
-
-
-
+```
  
-Data Mining Algorithms
+# Data Mining Algorithms
 
 For this project, we decided to use various eager and lazy methods, to try and accurately predict our classifier variable. All methods that we used are supervised learning models since we already have our data classifiers in both our training and test sets labeled. All algorithms used in this project utilized pre-built packages in the sklearn library:
 
 
 Eager Learner
-●	Logistic Regression
-●	Naive Bayes
-●	Decision Tree	Lazy Learner
-●	K-Nearest Neighbor
+- Logistic Regression 
+- Naive Bayes
+- Decision Tree	
+
+Lazy Learner
+- K-Nearest Neighbor
 
 Another technique that we deployed across all of our models was Principal Component Analysis. For this, we reduced the number of features in our dataset from 13 to 2. The reason why we decided to implement this method was to see whether or not simplifying our data points would lead to improved accuracy.
 
 One final technique we used to fine-tune all of our hyper-parameters on our models was implementing the GridSearchCV library. This allowed us to run multiple tests across all of our models using different combinations of the hyper-parameters we wanted to test in order to find the combination that gave us the highest accuracy results.
 
-Logistic Regression
+## Logistic Regression
 First step we did was to define all of the hyper-parameters that we wanted to run through the GridSearchCV package. This was done by creating a dictionary variable that contained the name of the hyper-parameter and values we wanted to pass through:
 
+``` python
 parameters_lr = {
     'penalty' : ['none' , 'l1' , 'l2'],
     'C'       : [100 , 10 , 1.0 , 0.1 , 0.01],
     'solver'  : ['newton-cg' , 'lbfgs' , 'sag' , 'saga'],
     'max_iter' : [100]
 }
-
+```
 
 
 
 Next, we defined the number of folds we wanted to implement on the GridSearch:
 
+``` python
 cv = 5
+```
 
 We then implemented the GridSearch package onto the Logistic Regression package and passed through the hyper-parameters we defined in our dictionary variable above:
 
+``` python
 lr = LogisticRegression(random_state = 1234)
 clf = GridSearchCV(lr,                   
                    param_grid = parameters_lr,  
@@ -166,30 +171,35 @@ clf = GridSearchCV(lr,
                    cv = cv)  
 
 clf.fit(X_train , y_train)
+```
 
 Finally, we asked the model to return the hyper-parameter combination that gave us the highest accuracy score:
 
+``` python
 print("Tuned Hyperparameters :", clf.best_params_)
 print("Accuracy :",clf.best_score_)
+```
 
-Best Parameters
+### Best Parameters
 
-
-Original Data
-
-The hyper-parameter combination that returned the highest accuracy:
-●	Penalty: 	none
-●	C:		100
-●	Solver: 	newton-cg	PCA Data
+**Original Data**
 
 The hyper-parameter combination that returned the highest accuracy:
-●	Penalty: 	l2
-●	C:		0.01
-●	Solver:		newton-cg
+- Penalty: 	none
+- C:		100
+- Solver: 	newton-cg	
 
-Naive Bayes
+**PCA Data**
+
+The hyper-parameter combination that returned the highest accuracy:
+- Penalty: 	l2
+- C:		0.01
+- Solver:		newton-cg
+
+## Naive Bayes
 Since there are fewer hyper-parameters to fine tune on the Gaussian Naive Bayes package, we just ran the package and passed through the training and test datasets to see what the accuracy score is with this method:
 
+``` python
 gnb = GaussianNB()
 gnb.fit(X_train , y_train)
 predict_gnb = gnb.predict(X_test)
@@ -199,23 +209,28 @@ print('Confusion Matrix:')
 print(confusion_matrix(y_test, predict_gnb))
 print('Classification Report Table:')
 print(classification_report(y_test, predict_gnb))
+```
 
-K-Nearest Neighbor
+## K-Nearest Neighbor
 First step we did was to define all of the hyper-parameters that we wanted to run through the GridSearchCV package. This was done by creating a dictionary variable that contained the name of the hyper-parameter and values we wanted to pass through:
 
+``` python
 parameters_knn = {
     'n_neighbors' : [1,3,5,7,9,11,13,15,17], # use odd numbers because we want prediction to select the most frequent classifier
     'weights'       : ['uniform' , 'distance'],
     'metric'  : ['euclidean' , 'manhattan' , 'minkowski']
 }
+```
 
 Next, we defined the number of folds we wanted to implement on the GridSearch:
 
+``` python
 cv = 5
+```
 
 We then implemented the GridSearch package onto the K-nearest neighbors package and passed through the hyper-parameters we defined in our dictionary variable above:
 
-
+``` python
 knn = KNeighborsClassifier()
 knneighbors = GridSearchCV(knn,                   
                    param_grid = parameters_knn,  
@@ -223,43 +238,53 @@ knneighbors = GridSearchCV(knn,
                    cv = cv)  
 
 knneighbors.fit(X_train , y_train)
+```
 
 Finally, we asked the model to return the hyper-parameter combination that gave us the highest accuracy score:
 
+``` python
 print("Tuned Hyperparameters :", knneighbors.best_params_)
 print("Accuracy :",knneighbors.best_score_)
+```
 
-Best Parameters
+### Best Parameters
 
 
-Original Data
-
-The hyper-parameter combination that returned the highest accuracy:
-●	n_neighbors = 1
-●	weights = uniform
-●	metric = manhattan	PCA Data
+**Original Data**
 
 The hyper-parameter combination that returned the highest accuracy:
-●	n_neighbors = 17
-●	weights = distance
-●	metric = euclidean
+- n_neighbors = 1
+- weights = uniform
+- metric = manhattan	
 
-Decision Tree
+**PCA Data**
+
+The hyper-parameter combination that returned the highest accuracy:
+- n_neighbors = 17
+- weights = distance
+- metric = euclidean
+
+## Decision Tree
 
 First step we did was to define all of the hyper-parameters that we wanted to run through the GridSearchCV package. This was done by creating a dictionary variable that contained the name of the hyper-parameter and values we wanted to pass through:
 
+``` python
 parameters_dtree = {
     'criterion' : [ 'gini', 'entropy', 'log_loss' ],
     'splitter'  : ['best', 'random'],
     'max_leaf_nodes' : [10,15,20]
 }
+```
 
 Next, we defined the number of folds we wanted to implement on the GridSearch:
 
+``` python
 cv = 5
+```
 
 We then implemented the GridSearch package onto the Logistic Regression package and passed through the hyper-parameters we defined in our dictionary variable above:
 
+``` python
 dtree = DecisionTreeClassifier()
 dtc = GridSearchCV(dtree,                   
                    param_grid = parameters_dtree,  
@@ -267,31 +292,35 @@ dtc = GridSearchCV(dtree,
                    cv = cv)  
 
 dtc.fit(X_train , y_train)
+```
 
 Finally, we asked the model to return the hyper-parameter combination that gave us the highest accuracy score:
 
+``` python
 print("Tuned Hyperparameters :", dtc.best_params_)
 print("Accuracy :",dtc.best_score_)
+```
 
-Best Parameters
+### Best Parameters
 
-
-Original Data
-
-The hyper-parameter combination that returned the highest accuracy:
-●	criterion = gini
-●	splitter = best
-●	max leaf nodes = 20	PCA Data
+**Original Data**
 
 The hyper-parameter combination that returned the highest accuracy:
-●	criterion = gini
-●	splitter = best
-●	max leaf nodes = 20
+- criterion = gini
+- splitter = best
+- max leaf nodes = 20	
+
+**PCA Data**
+
+The hyper-parameter combination that returned the highest accuracy:
+- criterion = gini
+- splitter = best
+- max leaf nodes = 20
  
-Results
+# Results
 
-Logistic Regression
-Original Data
+## Logistic Regression
+### Original Data
 When we plugged in our best hyper-parameters into the Logistic Regression model, trained the model on our training data, and tested the accuracy on our test data, we received the following results:
 
 Accuracy: 0.8536585365853658
@@ -313,7 +342,7 @@ weighted avg       0.86      0.85      0.85       205
 Here is a diagram of the ROC curve for Logistic Regression:
 
 
-PCA Data
+### PCA Data
 When we plugged in our best hyper-parameters into the Logistic Regression model, trained the model on our training data, and tested the accuracy on our test data, we received the following results:
 
 Accuracy: 0.8536585365853658
@@ -335,8 +364,8 @@ weighted avg       0.86      0.85      0.85       205
 Here is a diagram of the ROC curve for Logistic Regression:
 
  
-Naive Bayes
-Original Data
+## Naive Bayes
+### Original Data
 When we trained our data on the Naive Bayes model and tested the accuracy of our test data, we received the following results:
 
 Accuracy: 0.8390243902439024
@@ -356,7 +385,7 @@ weighted avg       0.84      0.84      0.84       205
 Here is a diagram of the ROC curve for Naive Bayes:
 
  
-PCA Data
+### PCA Data
 When we trained our data on the Naive Bayes model and tested the accuracy of our test data, we received the following results:
 
 Accuracy: 0.8585365853658536
@@ -376,8 +405,8 @@ weighted avg       0.87      0.86      0.86       205
 Here is a diagram of the ROC curve for Naive Bayes:
 
  
-K-Nearest Neighbor
-Original Data
+## K-Nearest Neighbor
+### Original Data
 When we plugged in our best hyper-parameters into the K-Nearest Neighbor model, trained the model on our training data, and tested the accuracy on our test data, we received the following results:
 
 Accuracy: 1.0
@@ -397,7 +426,7 @@ weighted avg       1.00      1.00      1.00       205
 Here is a diagram of the ROC curve for K-Nearest Neighbor:
 
  
-PCA Data
+### PCA Data
 When we plugged in our best hyper-parameters into the K-Nearest Neighbor model, trained the model on our training data, and tested the accuracy on our test data, we received the following results:
 
 Accuracy: 1.0
@@ -417,8 +446,8 @@ weighted avg       1.00      1.00      1.00       205
 Here is a diagram of the ROC curve for K-Nearest Neighbor:
 
  
-Decision Tree
-Original Data
+## Decision Tree
+### Original Data
 When we plugged in our best hyper-parameters into the Decision Tree model, trained the model on our training data, and tested the accuracy on our test data, we received the following results:
 
 Accuracy: 0.926829268292683
@@ -441,7 +470,7 @@ Here is a diagram of the ROC curve for Decision Tree:
 Here is a diagram of our decision tree:
 
  
-PCA Data
+### PCA Data
 When we plugged in our best hyper-parameters into the Decision Tree model, trained the model on our training data, and tested the accuracy on our test data, we received the following results:
 
 Accuracy: 0.8634146341463415
@@ -471,14 +500,13 @@ Here is a diagram of our decision tree:
 
 
  
-Conclusion
+# Conclusion
 
 When looking at models performance on the original data and the feature reduced data, the K-nearest neighbors method was the best model for predicting whether or not an individual had heart disease. Another observation is that the feature reduced data did not necessarily produce better results. This could be due to the dataset already having a lower dimensionality. Also, there could be a better n_components amount that we could have selected between 2 and 13 that may have given us a better result, but we decided, for the sake of time, to not test those values out during our PCA reduction analysis.
 
 Regarding the decision trees that we used in our analysis, we initially did not put a threshold on the maximum number of leaf nodes we wanted in our model. This ended up giving us a massive tree that did produce 100% accuracy on both the original data and the feature reduced data as well as 100% ROC score. We decided to implement a maximum 20 leaf nodes on our decision tree just for aesthetic purposes so we could add the diagram to our results section.
  
-Contributions
-
+# Contributions
 
 Literature Review: Rekha
 Data Visualization: Rekha
